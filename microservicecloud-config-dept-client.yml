@@ -41,9 +41,8 @@ info:  #加入Eureka后显示的信息
   company.name: www.atguigu.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$
-  ---
-  server:
-    profiles
+---
+server:
   port: 8001
 
 mybatis:
