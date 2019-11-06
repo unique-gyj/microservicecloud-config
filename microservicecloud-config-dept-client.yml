@@ -43,7 +43,7 @@ spring:
     name: microservicecloud-config-dept-client
   datasource:
     type: org.apache.tomcat.jdbc.pool.DataSource        #数据来源操作类型
-    url: jdbc:mysql://132.232.59.22:3306/cloudDB01?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true      #数据库连接地址
+    url: jdbc:mysql://132.232.59.22:3306/cloudDB02?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true      #数据库连接地址
     username: root
     password: 61154852a
     dbcp2:
