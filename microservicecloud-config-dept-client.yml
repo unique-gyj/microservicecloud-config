@@ -1,36 +1,40 @@
 spring: 
   profiles:
-    active: dev
+    active:
+    - dev
 --- 
 server:
   port: 8001
 spring: 
    profiles: dev
-  application:
+   application: 
     name: microservicecloud-config-dept-client
-  datasource:
-    type: org.apache.tomcat.jdbc.pool.DataSource        
+   datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://132.232.59.22:3306/cloudDB01?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true      #数据库连接地址
     username: root
     password: 61154852a
     dbcp2:
-      min-idle: 5                                      
-      initial-size: 5                                  
-      max-total: 5                                     
-      max-wait-millis: 200                             
-    driver-class-name: com.mysql.cj.jdbc.Driver        
-  cloud:
-    config:
-      enabled: false
-eureka:
-  client: 
-    service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200 
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.atguigu.springcloud.entities
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+ 
+eureka: 
+  client: #客户端注册进eureka服务列表内
+    service-url: 
+      defaultZone: http://eureka7001.com:7001/eureka
   instance:
-    instance-id: microservicecloud-dept8001 
-    prefer-ip-address: true    
-info:  
-  app.name: atguigu-microservicecloud
+    instance-id: dept-8001.com
+    prefer-ip-address: true
+ 
+info:
+  app.name: atguigu-microservicecloud-springcloudconfig01
   company.name: www.atguigu.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$
@@ -38,32 +42,35 @@ info:
 server:
   port: 8001
 spring: 
-   profiles: test
-  application:
+   profiles: dev
+   application: 
     name: microservicecloud-config-dept-client
-  datasource:
-    type: org.apache.tomcat.jdbc.pool.DataSource        
+   datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://132.232.59.22:3306/cloudDB02?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true      #数据库连接地址
     username: root
     password: 61154852a
     dbcp2:
-      min-idle: 5                                       
-      initial-size: 5                                  
-      max-total: 5                                      
-      max-wait-millis: 200                             
-    driver-class-name: com.mysql.cj.jdbc.Driver         
-  cloud:
-    config:
-      enabled: false
-eureka:
-  client:
-    service-url:
-      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+      min-idle: 5
+      initial-size: 5
+      max-total: 5
+      max-wait-millis: 200 
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.atguigu.springcloud.entities
+  mapper-locations: classpath:mybatis/mapper/**/*.xml
+ 
+eureka: 
+  client: #客户端注册进eureka服务列表内
+    service-url: 
+      defaultZone: http://eureka7001.com:7001/eureka
   instance:
-    instance-id: microservicecloud-dept8001 
-    prefer-ip-address: true     
-info: 
-  app.name: atguigu-microservicecloud
+    instance-id: dept-8001.com
+    prefer-ip-address: true
+ 
+info:
+  app.name: atguigu-microservicecloud-springcloudconfig01
   company.name: www.atguigu.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$
